@@ -3,53 +3,62 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SharpFlow - Black & White Crazy Effects</title>
+<title>SharpFlow - Creator Tools</title>
 <!-- Google Fonts for a modern look -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 <style>
+  /* Reset and background styles similar to example */
   body {
     margin: 0;
     font-family: 'Orbitron', sans-serif;
-    background: #000;
+    background: linear-gradient(270deg, #ff0055, #00ff55, #0055ff, #ff0055);
+    background-size: 600% 600%;
+    animation: gradientAnimation 15s ease infinite;
     color: #fff;
     overflow-x: hidden;
   }
 
-  /* Removed the animated lines background */
-  /* body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: repeating-conic-gradient(
-      #fff 0deg 10deg,
-      transparent 10deg 20deg
-    );
-    animation: lines 20s linear infinite;
-    z-index: -1;
+  @keyframes gradientAnimation {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
   }
 
-  @keyframes lines {
-    from {transform: rotate(0deg);}
-    to {transform: rotate(360deg);}
-  } */
-
+  /* Style for header and text animation similar to example site */
   header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
     text-align: center;
-    padding: 60px 20px;
-    border-bottom: 2px solid #fff;
   }
 
   h1 {
     font-size: 3em;
+    font-weight: 900;
     letter-spacing: 2px;
     margin-bottom: 20px;
-    text-shadow: 0 0 10px #fff;
-    border-bottom: 2px solid #fff;
-    display: inline-block;
-    padding-bottom: 10px;
+    position: relative;
+    animation: textGlow 2s infinite alternate;
   }
 
-  /* Sharp, edgy buttons */
+  @keyframes textGlow {
+    0% { text-shadow: 0 0 10px #fff, 0 0 20px #fff; }
+    100% { text-shadow: 0 0 20px #fff, 0 0 40px #fff; }
+  }
+
+  /* Add a beta badge */
+  .beta {
+    background: #fff;
+    color: #000;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  /* Buttons style */
   .btn {
     border: 3px solid #fff;
     border-radius: 0;
@@ -60,9 +69,8 @@
     background: transparent;
     color: #fff;
     transition: all 0.3s ease;
-    margin: 10px;
+    margin: 20px 10px;
     outline: none;
-    letter-spacing: 1px;
   }
 
   /* Crazy hover effects for buttons */
@@ -84,17 +92,19 @@
   /* Sections styling */
   section {
     padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
     border-top: 2px solid #fff;
+    text-align: center;
   }
 
   h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    text-align: center;
-    letter-spacing: 1px;
     border-bottom: 2px solid #fff;
     display: inline-block;
     padding-bottom: 10px;
+    letter-spacing: 1px;
   }
 
   /* Features grid */
@@ -102,8 +112,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
+    margin-top: 30px;
   }
 
   .feature {
@@ -120,7 +129,7 @@
     transform: skewX(2deg) skewY(2deg);
   }
 
-  /* Contact section */
+  /* Contact links */
   #contact a {
     display: block;
     margin: 10px 0;
@@ -139,6 +148,7 @@
     transform: rotate(-2deg);
   }
 
+  /* Footer styling */
   footer {
     text-align: center;
     padding: 20px;
@@ -151,10 +161,9 @@
 <body>
 
 <header>
-  <h1 class="neon">SharpFlow<br>🔥 Crazy Buttons & Effects</h1>
-  <div>
-    <button class="btn">Unleash Creativity</button>
-  </div>
+  <h1 class="neon">SharpFlow<br>🔥 Creator Tools</h1>
+  <div class="beta">Beta</div>
+  <button class="btn">Unlock Viral Tools</button>
 </header>
 
 <!-- Features with sharp edges and crazy hover -->
@@ -162,29 +171,52 @@
   <h2>🚀 Features</h2>
   <div class="features">
     <div class="feature">
-      <h3>🔥 Crazy Effects</h3>
-      <p>Wild visual effects that distort, shake, and explode your content into chaos.</p>
+      <h3>🤖 AI Script Generator</h3>
+      <p>Create scripts for automation, content, and more with ease.</p>
     </div>
     <div class="feature">
-      <h3>🎨 Custom Touches</h3>
-      <p>Personalize everything with sharp, edgy controls that turn simple into insane.</p>
+      <h3>🎯 Trending Hashtags</h3>
+      <p>Get the latest trending hashtags to make your posts go viral.</p>
     </div>
     <div class="feature">
-      <h3>⚡ Instant Workflow</h3>
-      <p>Speed up your creation with automation and lightning-fast tools.</p>
+      <h3>🌐 Community Building</h3>
+      <p>Tools to help grow your community and increase engagement.</p>
+    </div>
+    <div class="feature">
+      <h3>🛠 Auto Clickers & Tools</h3>
+      <p>Automate repetitive tasks with powerful auto clickers and scripts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section>
+  <h2>💰 Pricing</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:20px;">
+    <div style="background: rgba(255,255,255,0.1); padding:20px; border:2px solid #fff; border-radius:10px; min-width:200px;">
+      <h3>1 Month</h3>
+      <p style="font-size:1.2em;">$30</p>
+    </div>
+    <div style="background: rgba(255,255,255,0.1); padding:20px; border:2px solid #fff; border-radius:10px; min-width:200px;">
+      <h3>3 Months</h3>
+      <p style="font-size:1.2em;">$85</p>
+    </div>
+    <div style="background: rgba(255,255,255,0.1); padding:20px; border:2px solid #fff; border-radius:10px; min-width:200px;">
+      <h3>4 Months</h3>
+      <p style="font-size:1.2em;">$110</p>
     </div>
   </div>
 </section>
 
 <!-- Call to Action -->
 <section>
-  <h2>Join the Crazy Creator Club!</h2>
-  <a href="#contact" class="btn">Get Crazy Now</a>
+  <h2>🚀 Ready to Go Viral?</h2>
+  <button class="btn">Get Started Now</button>
 </section>
 
 <!-- Contact Section -->
 <section id="contact">
-  <h2>Contact & Collaborate</h2>
+  <h2>🤝 Contact & Community</h2>
   <a href="mailto:folyxz@gmail.com" target="_blank">Email: folyxz@gmail.com</a>
   <a href="https://github.com/zex42dev" target="_blank">GitHub Profile</a>
   <a href="https://discord.gg/E3SdzgT2Uu" target="_blank">Join Discord</a>
@@ -192,7 +224,7 @@
 
 <!-- Footer -->
 <footer>
-  &copy; 2024 SharpFlow. Make it crazy, make it sharp.
+  &copy; 2026 SharpFlow. Elevate your creator game.
 </footer>
 
 </body>
