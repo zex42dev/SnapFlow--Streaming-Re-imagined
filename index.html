@@ -1,199 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SharpFlow - Black & White Crazy Effects</title>
-<!-- Google Fonts for a modern look -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-<style>
-  body {
-    margin: 0;
-    font-family: 'Orbitron', sans-serif;
-    background: #000;
-    color: #fff;
-    overflow-x: hidden;
-  }
+// pages/index.js
+import { motion } from "framer-motion";
 
-  /* Removed the animated lines background */
-  /* body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: repeating-conic-gradient(
-      #fff 0deg 10deg,
-      transparent 10deg 20deg
-    );
-    animation: lines 20s linear infinite;
-    z-index: -1;
-  }
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white flex flex-col items-center justify-center">
+      
+      {/* Hero Section */}
+      <motion.h1
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="text-6xl font-extrabold mb-4"
+      >
+        🚀 SnapFlow
+      </motion.h1>
 
-  @keyframes lines {
-    from {transform: rotate(0deg);}
-    to {transform: rotate(360deg);}
-  } */
+      <motion.p
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.5, duration: 1 }}
+        className="text-xl text-center max-w-2xl"
+      >
+        Workflows that click — automate tasks, centralize tools, and customize your productivity dashboard.
+      </motion.p>
 
-  header {
-    text-align: center;
-    padding: 60px 20px;
-    border-bottom: 2px solid #fff;
-  }
+      {/* Call to Action Buttons */}
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="mt-8 flex gap-6"
+      >
+        <a
+          href="https://vercel.com/new"
+          className="px-6 py-3 bg-black rounded-lg shadow-lg hover:scale-110 transition-transform"
+        >
+          Deploy Free on Vercel
+        </a>
+        <a
+          href="https://app.netlify.com/start"
+          className="px-6 py-3 bg-white text-black rounded-lg shadow-lg hover:scale-110 transition-transform"
+        >
+          Deploy Free on Netlify
+        </a>
+      </motion.div>
 
-  h1 {
-    font-size: 3em;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px #fff;
-    border-bottom: 2px solid #fff;
-    display: inline-block;
-    padding-bottom: 10px;
-  }
-
-  /* Sharp, edgy buttons */
-  .btn {
-    border: 3px solid #fff;
-    border-radius: 0;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    font-family: 'Orbitron', sans-serif;
-    cursor: pointer;
-    background: transparent;
-    color: #fff;
-    transition: all 0.3s ease;
-    margin: 10px;
-    outline: none;
-    letter-spacing: 1px;
-  }
-
-  /* Crazy hover effects for buttons */
-  .btn:hover {
-    animation: crazyHover 0.8s forwards;
-    transform: scale(1.1) rotate(3deg);
-    box-shadow: 0 0 20px #fff, inset 0 0 10px #fff;
-    border-color: #fff;
-  }
-
-  @keyframes crazyHover {
-    0% { filter: hue-rotate(0deg) skewX(0deg) skewY(0deg); }
-    25% { filter: hue-rotate(360deg) skewX(10deg) skewY(-10deg); }
-    50% { filter: hue-rotate(720deg) skewX(-10deg) skewY(10deg); }
-    75% { filter: hue-rotate(1080deg) skewX(0deg) skewY(0deg); }
-    100% { filter: hue-rotate(1440deg); transform: scale(1.2) rotate(-3deg); }
-  }
-
-  /* Sections styling */
-  section {
-    padding: 60px 20px;
-    border-top: 2px solid #fff;
-  }
-
-  h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    text-align: center;
-    letter-spacing: 1px;
-    border-bottom: 2px solid #fff;
-    display: inline-block;
-    padding-bottom: 10px;
-  }
-
-  /* Features grid */
-  .features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .feature {
-    background: rgba(255,255,255,0.05);
-    border: 2px solid #fff;
-    padding: 20px;
-    border-radius: 0;
-    transition: all 0.3s ease;
-  }
-
-  .feature:hover {
-    border-color: #fff;
-    box-shadow: 0 0 20px #fff inset, 0 0 40px #fff;
-    transform: skewX(2deg) skewY(2deg);
-  }
-
-  /* Contact section */
-  #contact a {
-    display: block;
-    margin: 10px 0;
-    color: #fff;
-    font-size: 1.2em;
-    text-decoration: none;
-    border-bottom: 1px dashed #fff;
-    padding-bottom: 5px;
-    transition: all 0.3s ease;
-  }
-
-  #contact a:hover {
-    color: #fff;
-    font-weight: bold;
-    border-color: #fff;
-    transform: rotate(-2deg);
-  }
-
-  footer {
-    text-align: center;
-    padding: 20px;
-    border-top: 2px solid #fff;
-    font-size: 0.9em;
-    letter-spacing: 1px;
-  }
-</style>
-</head>
-<body>
-
-<header>
-  <h1 class="neon">SharpFlow<br>🔥 Crazy Buttons & Effects</h1>
-  <div>
-    <button class="btn">Unleash Creativity</button>
-  </div>
-</header>
-
-<!-- Features with sharp edges and crazy hover -->
-<section id="features">
-  <h2>🚀 Features</h2>
-  <div class="features">
-    <div class="feature">
-      <h3>🔥 Crazy Effects</h3>
-      <p>Wild visual effects that distort, shake, and explode your content into chaos.</p>
+      {/* Animated Features Section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-4xl"
+      >
+        {[
+          "⚡ Macros Hub",
+          "🔗 Integrations",
+          "🤖 AI Add-ons",
+          "🎨 Customizable Dashboard",
+          "🌍 Free Deployment",
+        ].map((feature, i) => (
+          <motion.div
+            key={i}
+            whileHover={{ scale: 1.1, rotate: 2 }}
+            className="bg-white text-black rounded-xl p-6 shadow-lg"
+          >
+            {feature}
+          </motion.div>
+        ))}
+      </motion.div>
     </div>
-    <div class="feature">
-      <h3>🎨 Custom Touches</h3>
-      <p>Personalize everything with sharp, edgy controls that turn simple into insane.</p>
-    </div>
-    <div class="feature">
-      <h3>⚡ Instant Workflow</h3>
-      <p>Speed up your creation with automation and lightning-fast tools.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Call to Action -->
-<section>
-  <h2>Join the Crazy Creator Club!</h2>
-  <a href="#contact" class="btn">Get Crazy Now</a>
-</section>
-
-<!-- Contact Section -->
-<section id="contact">
-  <h2>Contact & Collaborate</h2>
-  <a href="mailto:folyxz@gmail.com" target="_blank">Email: folyxz@gmail.com</a>
-  <a href="https://github.com/zex42dev" target="_blank">GitHub Profile</a>
-  <a href="https://discord.gg/E3SdzgT2Uu" target="_blank">Join Discord</a>
-</section>
-
-<!-- Footer -->
-<footer>
-  &copy; 2024 SharpFlow. Make it crazy, make it sharp.
-</footer>
-
-</body>
-</html>
+  );
+}
