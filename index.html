@@ -38,7 +38,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulance type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
             opacity: 0.03;
             pointer-events: none;
             z-index: 9999;
@@ -491,16 +491,89 @@
             box-shadow: 0 20px 50px rgba(255, 255, 255, 0.1);
         }
         
+        /* Dashboard Preview Section */
+        .dashboard-preview {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .dashboard-mockup {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .dashboard-mockup:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(255, 255, 255, 0.1);
+        }
+        
+        .dashboard-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: left 1s;
+        }
+        
+        .dashboard-mockup:hover::before {
+            left: 100%;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .dashboard-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .dashboard-card:hover {
+            transform: scale(1.05);
+            border-color: var(--text-secondary);
+        }
+        
+        .dashboard-stat {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff, #888888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .dashboard-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
         /* Section Styling with scroll reveal */
         section {
-            padding: 8rem 2rem;
+            padding: 6rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
         
         .section-header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 4rem;
         }
         
         .section-badge {
@@ -947,7 +1020,7 @@
         
         /* CTA Section with animated background */
         .cta-section {
-            padding: 10rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
             background: var(--bg-secondary);
             border-top: 1px solid var(--border);
@@ -1011,7 +1084,7 @@
         
         /* Footer */
         footer {
-            padding: 4rem 2rem 2rem;
+            padding: 3rem 2rem 2rem;
             background: var(--bg);
             border-top: 1px solid var(--border);
         }
@@ -1043,6 +1116,8 @@
             display: flex;
             gap: 2.5rem;
             list-style: none;
+            align-items: center;
+            flex-wrap: wrap;
         }
         
         .footer-links a {
@@ -1050,6 +1125,9 @@
             text-decoration: none;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         
         .footer-links a:hover {
@@ -1057,9 +1135,20 @@
             transform: translateY(-3px);
         }
         
+        .github-icon {
+            width: 20px;
+            height: 20px;
+            fill: var(--text-secondary);
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover .github-icon {
+            fill: var(--text);
+        }
+        
         .copyright {
             color: var(--text-tertiary);
-            margin-top: 3rem;
+            margin-top: 2rem;
             text-align: center;
             width: 100%;
             font-size: 0.9rem;
@@ -1069,7 +1158,8 @@
         @media (max-width: 1024px) {
             .features-grid,
             .workflow-cards,
-            .pricing-grid {
+            .pricing-grid,
+            .dashboard-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
@@ -1096,7 +1186,8 @@
             .features-grid,
             .workflow-cards,
             .pricing-grid,
-            .mobile-features {
+            .mobile-features,
+            .dashboard-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1178,12 +1269,50 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="beta-badge">Beta · One workspace. Endless integrations.</div>
-            <h1>Workflow messy?</h1>
-            <h2>Just <span class="gradient-text">SnapFlow</span> it.</h2>
+            <h1>Chaos everywhere?</h1>
+            <h2>Just Use <span class="gradient-text">SnapFlow</span>.</h2>
             <p>SnapFlow brings streaming, automation, and content creation into one unified platform. Go live everywhere, automate your workflow, and make content faster than ever.</p>
             <div class="hero-buttons">
                 <a href="#" class="btn-primary">Get Started Free</a>
                 <a href="#features" class="btn-secondary">See Features</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Dashboard Preview Section -->
+    <section class="dashboard-preview fade-in">
+        <div class="section-header">
+            <div class="section-badge">Dashboard</div>
+            <h2>Your command center for everything</h2>
+            <p>Manage all your streams, analytics, and content from one beautiful interface.</p>
+        </div>
+        
+        <div class="dashboard-mockup">
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="dashboard-stat">12.4K</div>
+                    <div class="dashboard-label">Total Viewers</div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="dashboard-stat">847</div>
+                    <div class="dashboard-label">Clips Created</div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="dashboard-stat">5</div>
+                    <div class="dashboard-label">Platforms Live</div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="dashboard-stat">98.2%</div>
+                    <div class="dashboard-label">Uptime</div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="dashboard-stat">$2.8K</div>
+                    <div class="dashboard-label">Revenue This Month</div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="dashboard-stat">+342%</div>
+                    <div class="dashboard-label">Growth Rate</div>
+                </div>
             </div>
         </div>
     </section>
@@ -1468,7 +1597,13 @@
                 <li><a href="#">Pricing</a></li>
                 <li><a href="#">Documentation</a></li>
                 <li><a href="https://discord.gg/kmGHtfYGUm" target="_blank">Discord</a></li>
-                <li><a href="#">GitHub</a></li>
+                <li><a href="https://github.com/zex42dev" target="_blank">
+                    <svg class="github-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    GitHub
+                </a></li>
+                <li><a href="mailto:folyxz@gmail.com">✉ folyxz@gmail.com</a></li>
             </ul>
         </div>
         <div class="copyright">
