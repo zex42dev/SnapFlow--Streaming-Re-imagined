@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SnapFlow / SnapTV - The Ultimate Platform</title>
+<title>SnapFlow - The Ultimate Automation Platform</title>
 <!-- Google Fonts - Cool Black & White Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Bebas+Neue&display=swap" rel="stylesheet" />
 <!-- Chart.js CDN -->
@@ -13,203 +13,120 @@
 <style>
   body {
     font-family: 'Bebas Neue', cursive;
-    background: #000;
+    background: #000; /* Darker background */
     color: #fff;
     overflow-x: hidden;
   }
-
-  /* Crazy Animations & Effects */
-  @keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
+  /* Smooth, professional animations */
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
-
-  .glitch {
-    animation: glitch 1s infinite;
+  @keyframes slideInLeft {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
   }
-
-  /* Custom button hover effect */
-  .neon-button:hover {
-    box-shadow: 0 0 20px #fff, 0 0 40px #fff;
-    transition: all 0.3s ease;
+  @keyframes slideInRight {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+  .fade-in-up {
+    animation: fadeInUp 1s forwards;
+  }
+  .slide-in-left {
+    animation: slideInLeft 1s forwards;
+  }
+  .slide-in-right {
+    animation: slideInRight 1s forwards;
+  }
+  /* Cool scrolling effects */
+  body {
+    scroll-behavior: smooth;
+  }
+  /* Neon glow effect for headings/buttons */
+  .neon {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0ff, 0 0 40px #0ff;
   }
 </style>
 </head>
-<body class="font-sans">
+<body class="flex flex-col items-center">
 
 <!-- Navigation -->
-<nav class="fixed top-0 w-full bg-black bg-opacity-70 backdrop-blur-lg z-50 flex justify-center space-x-8 p-4 text-white font-bold text-xl uppercase tracking-widest">
-  <a href="#home" class="hover:text-neon">Home</a>
-  <a href="#features" class="hover:text-neon">Features</a>
-  <a href="#why" class="hover:text-neon">Why Us</a>
+<nav class="fixed top-0 w-full bg-black bg-opacity-80 backdrop-blur-lg z-50 flex justify-center space-x-8 p-4 text-white font-bold text-xl uppercase tracking-widest">
+  <a href="#hero" class="hover:text-neon">Home</a>
   <a href="#compare" class="hover:text-neon">Compare</a>
-  <a href="#gallery" class="hover:text-neon">Gallery</a>
-  <a href="#pricing" class="hover:text-neon">Pricing</a>
+  <a href="#about" class="hover:text-neon">About</a>
   <a href="#contact" class="hover:text-neon">Contact</a>
 </nav>
 
 <!-- Hero Section -->
-<section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black relative p-8">
-  <h1 class="text-6xl md:text-8xl font-['Orbitron'] glitch animate-bounce text-center leading-tight">
-    THE FUTURE <br> OF STREAMING & PRODUCTIVITY
-  </h1>
+<section id="hero" class="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 px-4 py-20 relative text-center">
+  <h1 class="text-6xl md:text-8xl font-['Orbitron'] neon mb-4 fade-in-up" style="animation-delay: 0.2s;">SNAPFLOW</h1>
+  <h2 class="text-3xl md:text-4xl font-bold mb-8 fade-in-up" style="animation-delay: 0.4s;">Automate. Streamline. Dominate.</h2>
+  <p class="text-xl md:text-2xl mb-12 fade-in-up" style="animation-delay: 0.6s;">The ultimate platform for streamers and creators to automate workflows and amplify their content.</p>
+  <a href="#compare" class="neon bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-gray-200 transition duration-300 fade-in-up" style="animation-delay: 0.8s;">Discover How</a>
 </section>
 
-<!-- Features Page -->
-<section id="features" class="min-h-screen p-12 bg-gray-900 text-white">
-  <h2 class="text-4xl md:text-6xl font-bold mb-8 text-center uppercase underline">Features</h2>
-  <div class="grid md:grid-cols-3 gap-8 text-center">
-    <div class="p-6 bg-black bg-opacity-70 rounded-lg shadow-lg hover:scale-105 transform transition duration-300 animate-glitch">
-      <h3 class="text-2xl mb-4 font-bold">Macros Hub</h3>
-      <p>Automate workflows with a single click.</p>
-    </div>
-    <div class="p-6 bg-black bg-opacity-70 rounded-lg shadow-lg hover:scale-105 transform transition duration-300 animate-glitch" style="animation-delay: 0.2s">
-      <h3 class="text-2xl mb-4 font-bold">Seamless Integrations</h3>
-      <p>Connect Twitch, YouTube, TikTok, Discord, GitHub, etc.</p>
-    </div>
-    <div class="p-6 bg-black bg-opacity-70 rounded-lg shadow-lg hover:scale-105 transform transition duration-300 animate-glitch" style="animation-delay: 0.4s">
-      <h3 class="text-2xl mb-4 font-bold">High-Quality Recordings</h3>
-      <p>Capture in 4K, upload instantly, share globally.</p>
-    </div>
+<!-- Comparison Section -->
+<section id="compare" class="min-h-screen p-20 bg-gray-900 text-white flex flex-col items-center justify-center">
+  <h2 class="text-4xl md:text-6xl font-bold mb-12 uppercase underline neon fade-in-up" style="animation-delay: 0.2s;">Comparison</h2>
+  <canvas id="comparisonChart" class="w-full max-w-6xl h-96 md:h-[500px]"></canvas>
+</section>
+
+<!-- About / Why Us -->
+<section id="about" class="min-h-screen p-20 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 text-white flex flex-col items-center justify-center">
+  <h2 class="text-4xl md:text-6xl font-bold mb-8 uppercase underline neon fade-in-up" style="animation-delay: 0.2s;">Why Choose SnapFlow?</h2>
+  <div class="max-w-4xl text-center space-y-6 text-xl fade-in-up" style="animation-delay: 0.4s;">
+    <p>Harness the power of automation to grow faster and work smarter with cutting-edge AI, integrations, and high-quality tools.</p>
+    <p>Designed for creators who want to stand out and save time, with a sleek, intuitive interface and lightning-fast performance.</p>
   </div>
 </section>
 
-<!-- Why Us -->
-<section id="why" class="min-h-screen p-12 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 text-white">
-  <h2 class="text-4xl md:text-6xl font-bold mb-8 text-center uppercase underline">Why Choose Us?</h2>
-  <div class="max-w-4xl mx-auto space-y-8 text-center">
-    <div class="animation-bounce bg-black bg-opacity-70 p-8 rounded-lg shadow-xl hover:scale-105 transition duration-300">
-      <h3 class="text-3xl mb-4">Cutting-Edge Technology</h3>
-      <p>We use the latest AI, streaming, and automation tech.</p>
-    </div>
-    <div class="animation-bounce bg-black bg-opacity-70 p-8 rounded-lg shadow-xl hover:scale-105 transition duration-300" style="animation-delay: 0.2s">
-      <h3 class="text-3xl mb-4">User-Centric Design</h3>
-      <p>Intuitive, fast, and customizable for your needs.</p>
-    </div>
-    <div class="animation-bounce bg-black bg-opacity-70 p-8 rounded-lg shadow-xl hover:scale-105 transition duration-300" style="animation-delay: 0.4s">
-      <h3 class="text-3xl mb-4">Reliable & Fast</h3>
-      <p>Optimized for low latency, high quality, and uptime.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Comparison Charts -->
-<section id="compare" class="min-h-screen p-12 bg-gray-900 text-white">
-  <h2 class="text-4xl md:text-6xl font-bold mb-8 text-center uppercase underline">Comparison</h2>
-  <canvas id="comparisonChart" class="max-w-4xl mx-auto"></canvas>
-</section>
-
-<!-- Gallery / Demos -->
-<section id="gallery" class="min-h-screen p-12 bg-gradient-to-br from-gray-700 via-gray-900 to-gray-700 text-white">
-  <h2 class="text-4xl md:text-6xl font-bold mb-8 text-center uppercase underline">Gallery & Demos</h2>
-  <div class="grid md:grid-cols-3 gap-4">
-    <!-- Placeholder images / videos -->
-    <div class="bg-black p-4 rounded-lg shadow-lg hover:scale-105 transition">
-      <img src="https://via.placeholder.com/300x200/000000/ffffff?text=Demo+1" class="w-full rounded" />
-    </div>
-    <div class="bg-black p-4 rounded-lg shadow-lg hover:scale-105 transition">
-      <img src="https://via.placeholder.com/300x200/000000/ffffff?text=Demo+2" class="w-full rounded" />
-    </div>
-    <div class="bg-black p-4 rounded-lg shadow-lg hover:scale-105 transition">
-      <img src="https://via.placeholder.com/300x200/000000/ffffff?text=Demo+3" class="w-full rounded" />
-    </div>
-  </div>
-</section>
-
-<!-- Pricing -->
-<section id="pricing" class="min-h-screen p-12 bg-gray-800 text-white">
-  <h2 class="text-4xl md:text-6xl font-bold mb-8 text-center uppercase underline">Pricing Plans</h2>
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center">
-    <div class="bg-black bg-opacity-70 p-8 rounded-lg shadow-lg hover:scale-105 transition">
-      <h3 class="text-3xl mb-4 font-semibold">Basic</h3>
-      <p class="text-2xl mb-4">$9/mo</p>
-      <ul class="mb-4">
-        <li>Access to core features</li>
-        <li>Limited integrations</li>
-        <li>Basic support</li>
-      </ul>
-      <button class="neon-button bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200">Get Started</button>
-    </div>
-    <div class="bg-black bg-opacity-70 p-8 rounded-lg shadow-lg hover:scale-105 transition">
-      <h3 class="text-3xl mb-4 font-semibold">Pro</h3>
-      <p class="text-2xl mb-4">$29/mo</p>
-      <ul class="mb-4">
-        <li>All Basic features</li>
-        <li>Unlimited integrations</li>
-        <li>Priority support</li>
-      </ul>
-      <button class="neon-button bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200">Upgrade Now</button>
-    </div>
-    <div class="bg-black bg-opacity-70 p-8 rounded-lg shadow-lg hover:scale-105 transition">
-      <h3 class="text-3xl mb-4 font-semibold">Enterprise</h3>
-      <p class="text-2xl mb-4">Custom</p>
-      <ul class="mb-4">
-        <li>All Pro features</li>
-        <li>Dedicated support</li>
-        <li>Custom integrations</li>
-      </ul>
-      <button class="neon-button bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200">Contact Us</button>
-    </div>
-  </div>
-</section>
-
-<!-- Contact / End -->
-<section id="contact" class="min-h-screen p-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
-  <h2 class="text-4xl md:text-6xl font-bold mb-8 text-center uppercase underline animate-fade-in-up">Get in Touch</h2>
-  <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12 max-w-3xl mx-auto">
-    <!-- Discord -->
-    <a href="https://discord.gg/kmGHtfYGUm" target="_blank" class="flex items-center space-x-4 hover:scale-110 transition">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/discord.png" class="w-8 h-8" />
-      <span class="font-semibold">Discord</span>
+<!-- Contact -->
+<section id="contact" class="min-h-screen p-20 bg-gray-900 flex flex-col items-center justify-center">
+  <h2 class="text-4xl md:text-6xl font-bold mb-8 uppercase underline neon fade-in-up" style="animation-delay: 0.2s;">Get in Touch</h2>
+  <div class="flex space-x-8">
+    <a href="https://discord.gg/kmGHtfYGUm" target="_blank" class="hover:scale-110 transition">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/discord.png" class="w-10 h-10" />
     </a>
-    <!-- GitHub -->
-    <a href="https://www.github.com/zex42dev" target="_blank" class="flex items-center space-x-4 hover:scale-110 transition">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" class="w-8 h-8" />
-      <span class="font-semibold">GitHub</span>
+    <a href="https://www.github.com/zex42dev" target="_blank" class="hover:scale-110 transition">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" class="w-10 h-10" />
     </a>
-    <!-- Email -->
-    <a href="mailto:folyxz@gmail.com" class="flex items-center space-x-4 hover:scale-110 transition">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/new-post.png" class="w-8 h-8" />
-      <span class="font-semibold">Email</span>
+    <a href="mailto:folyxz@gmail.com" class="hover:scale-110 transition">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/new-post.png" class="w-10 h-10" />
     </a>
   </div>
 </section>
 
-<!-- Scripts for charts and animations -->
+<!-- Scripts for chart and animations -->
 <script>
-  // Chart.js comparison chart
+  // Comparison Chart
   const ctx = document.getElementById('comparisonChart').getContext('2d');
   const comparisonChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Speed', 'Ease of Use', 'Integrations', 'Support'],
-      datasets: [{
-        label: 'Our Platform',
-        data: [9, 8.5, 9, 9],
-        backgroundColor: 'rgba(255,255,255,0.7)',
-        borderColor: 'white',
-        borderWidth: 1
-      },
-      {
-        label: 'Others',
-        data: [6, 5, 6, 4],
-        backgroundColor: 'rgba(255,0,0,0.5)',
-        borderColor: 'red',
-        borderWidth: 1
-      }]
+      labels: ['Speed', 'Ease of Use', 'Integrations', 'Support', 'Automation'],
+      datasets: [
+        {
+          label: 'SnapFlow',
+          data: [9, 9, 10, 9, 10],
+          backgroundColor: 'rgba(255,255,255,0.7)',
+        },
+        {
+          label: 'Other Platforms',
+          data: [6, 5, 6, 4, 5],
+          backgroundColor: 'rgba(255,0,0,0.5)',
+        }
+      ]
     },
     options: {
       responsive: true,
       plugins: {
-        legend: { labels: { color: 'white' } }
+        legend: { labels: { color: 'white', font: { size: 16 } } }
       },
       scales: {
-        y: { beginAtZero: true, ticks: { color: 'white' } },
-        x: { ticks: { color: 'white' } }
+        y: { beginAtZero: true, ticks: { color: 'white', font: { size: 14 } } },
+        x: { ticks: { color: 'white', font: { size: 14 } } }
       }
     }
   });
