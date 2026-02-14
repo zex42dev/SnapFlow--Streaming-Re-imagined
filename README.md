@@ -34,4 +34,4 @@ Backend: Node.js + serverless functions
 
 Database: Firebase / Supabase
 
-Streaming APIs:
+Streaming APIs: Twitch, YouTube, TikTok, OBS, WebRTC
