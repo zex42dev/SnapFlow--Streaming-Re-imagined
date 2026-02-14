@@ -3,105 +3,215 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SnapFlow / SnapTV</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins&display=swap" rel="stylesheet" />
+<title>SnapFlow / SnapTV - The Ultimate Platform</title>
+<!-- Google Fonts - Cool Black & White Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Bebas Neue', cursive;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
   }
-  /* Smooth fade-in animations for sections */
-  @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+
+  /* Crazy Animations & Effects */
+  @keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
   }
-  .fade-in-up {
-    animation: fadeInUp 1s ease-out forwards;
+
+  .glitch {
+    animation: glitch 1s infinite;
+  }
+
+  /* Custom button hover effect */
+  .neon-button:hover {
+    box-shadow: 0 0 20px #fff, 0 0 40px #fff;
+    transition: all 0.3s ease;
   }
 </style>
 </head>
-<body class="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white font-sans">
+<body class="font-sans">
 
-<!-- Header -->
-<header class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 bg-gradient-to-r from-purple-900 via-indigo-900 to-blue-900 bg-opacity-80 text-center">
-  <h1 class="text-5xl md:text-7xl font-semibold mb-4 animate-fade-in-up" style="animation-delay: 0.2s;">🚀 SnapFlow / SnapTV — Your Vision</h1>
-  <p class="text-xl md:text-2xl mb-8 animate-fade-in-up" style="animation-delay: 0.4s;">The Ultimate Streaming + Productivity Hub</p>
-  <a href="#compare" class="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition duration-300 animate-fade-in-up" style="animation-delay: 0.6s;">Explore Features</a>
-</header>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full bg-black bg-opacity-70 backdrop-blur-lg z-50 flex justify-center space-x-8 p-4 text-white font-bold text-xl uppercase tracking-widest">
+  <a href="#home" class="hover:text-neon">Home</a>
+  <a href="#features" class="hover:text-neon">Features</a>
+  <a href="#why" class="hover:text-neon">Why Us</a>
+  <a href="#compare" class="hover:text-neon">Compare</a>
+  <a href="#gallery" class="hover:text-neon">Gallery</a>
+  <a href="#pricing" class="hover:text-neon">Pricing</a>
+  <a href="#contact" class="hover:text-neon">Contact</a>
+</nav>
 
-<!-- Comparison Section -->
-<section id="compare" class="min-h-screen px-4 py-20 flex flex-col md:flex-row items-center justify-around bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800">
-  <div class="max-w-md p-8 bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-lg animate-fade-in-up" style="animation-delay: 0.2s;">
-    <h2 class="text-3xl font-semibold mb-4 text-center">Old Way</h2>
-    <ul class="list-disc list-inside space-y-2 text-gray-300">
-      <li>Multiple Apps</li>
-      <li>Manual setup</li>
-      <li>Time-consuming</li>
-      <li>Fragmented workflows</li>
-    </ul>
-  </div>
-  <div class="max-w-md p-8 bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-lg animate-fade-in-up" style="animation-delay: 0.4s;">
-    <h2 class="text-3xl font-semibold mb-4 text-center">The New Way</h2>
-    <ul class="list-disc list-inside space-y-2 text-gray-300">
-      <li>One Dashboard</li>
-      <li>One Button</li>
-      <li>Instant Sharing & Streaming</li>
-      <li>Automated Workflows</li>
-    </ul>
-  </div>
+<!-- Hero Section -->
+<section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black relative p-8">
+  <h1 class="text-6xl md:text-8xl font-['Orbitron'] glitch animate-bounce text-center leading-tight">
+    THE FUTURE <br> OF STREAMING & PRODUCTIVITY
+  </h1>
 </section>
 
-<!-- Features Section -->
-<section class="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-20 px-4">
-  <h2 class="text-4xl md:text-5xl font-semibold mb-12 text-center animate-fade-in-up" style="animation-delay: 0.2s;">Core Features</h2>
-  <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-    <div class="p-6 bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-lg animate-fade-in-up" style="animation-delay: 0.3s;">
-      <h3 class="text-2xl mb-4 font-semibold">⚡ Macros Hub</h3>
-      <p>Automate complex workflows with a single click, saving time and effort.</p>
+<!-- Features Page -->
+<section id="features" class="min-h-screen p-12 bg-gray-900 text-white">
+  <h2 class="text-4xl md:text-6xl font-bold mb-8 text-center uppercase underline">Features</h2>
+  <div class="grid md:grid-cols-3 gap-8 text-center">
+    <div class="p-6 bg-black bg-opacity-70 rounded-lg shadow-lg hover:scale-105 transform transition duration-300 animate-glitch">
+      <h3 class="text-2xl mb-4 font-bold">Macros Hub</h3>
+      <p>Automate workflows with a single click.</p>
     </div>
-    <div class="p-6 bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-lg animate-fade-in-up" style="animation-delay: 0.4s;">
-      <h3 class="text-2xl mb-4 font-semibold">🔗 Integrations</h3>
-      <p>Seamlessly connect Twitch, YouTube, TikTok, Discord, GitHub, and more.</p>
+    <div class="p-6 bg-black bg-opacity-70 rounded-lg shadow-lg hover:scale-105 transform transition duration-300 animate-glitch" style="animation-delay: 0.2s">
+      <h3 class="text-2xl mb-4 font-bold">Seamless Integrations</h3>
+      <p>Connect Twitch, YouTube, TikTok, Discord, GitHub, etc.</p>
     </div>
-    <div class="p-6 bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-lg animate-fade-in-up" style="animation-delay: 0.5s;">
-      <h3 class="text-2xl mb-4 font-semibold">🎥 4K Recording & Uploads</h3>
-      <p>Capture high-quality clips and share them instantly with your community.</p>
-    </div>
-    <div class="p-6 bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-lg animate-fade-in-up" style="animation-delay: 0.6s;">
-      <h3 class="text-2xl mb-4 font-semibold">🤖 AI Add-ons</h3>
-      <p>Generate trending hashtags, viral titles, and highlight reels automatically.</p>
+    <div class="p-6 bg-black bg-opacity-70 rounded-lg shadow-lg hover:scale-105 transform transition duration-300 animate-glitch" style="animation-delay: 0.4s">
+      <h3 class="text-2xl mb-4 font-bold">High-Quality Recordings</h3>
+      <p>Capture in 4K, upload instantly, share globally.</p>
     </div>
   </div>
 </section>
 
-<!-- Contact Section -->
-<section class="py-20 px-4 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900" id="contact">
-  <h2 class="text-4xl md:text-5xl font-semibold mb-12 text-center animate-fade-in-up" style="animation-delay: 0.2s;">Get in Touch</h2>
-  <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 max-w-3xl mx-auto">
+<!-- Why Us -->
+<section id="why" class="min-h-screen p-12 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 text-white">
+  <h2 class="text-4xl md:text-6xl font-bold mb-8 text-center uppercase underline">Why Choose Us?</h2>
+  <div class="max-w-4xl mx-auto space-y-8 text-center">
+    <div class="animation-bounce bg-black bg-opacity-70 p-8 rounded-lg shadow-xl hover:scale-105 transition duration-300">
+      <h3 class="text-3xl mb-4">Cutting-Edge Technology</h3>
+      <p>We use the latest AI, streaming, and automation tech.</p>
+    </div>
+    <div class="animation-bounce bg-black bg-opacity-70 p-8 rounded-lg shadow-xl hover:scale-105 transition duration-300" style="animation-delay: 0.2s">
+      <h3 class="text-3xl mb-4">User-Centric Design</h3>
+      <p>Intuitive, fast, and customizable for your needs.</p>
+    </div>
+    <div class="animation-bounce bg-black bg-opacity-70 p-8 rounded-lg shadow-xl hover:scale-105 transition duration-300" style="animation-delay: 0.4s">
+      <h3 class="text-3xl mb-4">Reliable & Fast</h3>
+      <p>Optimized for low latency, high quality, and uptime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison Charts -->
+<section id="compare" class="min-h-screen p-12 bg-gray-900 text-white">
+  <h2 class="text-4xl md:text-6xl font-bold mb-8 text-center uppercase underline">Comparison</h2>
+  <canvas id="comparisonChart" class="max-w-4xl mx-auto"></canvas>
+</section>
+
+<!-- Gallery / Demos -->
+<section id="gallery" class="min-h-screen p-12 bg-gradient-to-br from-gray-700 via-gray-900 to-gray-700 text-white">
+  <h2 class="text-4xl md:text-6xl font-bold mb-8 text-center uppercase underline">Gallery & Demos</h2>
+  <div class="grid md:grid-cols-3 gap-4">
+    <!-- Placeholder images / videos -->
+    <div class="bg-black p-4 rounded-lg shadow-lg hover:scale-105 transition">
+      <img src="https://via.placeholder.com/300x200/000000/ffffff?text=Demo+1" class="w-full rounded" />
+    </div>
+    <div class="bg-black p-4 rounded-lg shadow-lg hover:scale-105 transition">
+      <img src="https://via.placeholder.com/300x200/000000/ffffff?text=Demo+2" class="w-full rounded" />
+    </div>
+    <div class="bg-black p-4 rounded-lg shadow-lg hover:scale-105 transition">
+      <img src="https://via.placeholder.com/300x200/000000/ffffff?text=Demo+3" class="w-full rounded" />
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" class="min-h-screen p-12 bg-gray-800 text-white">
+  <h2 class="text-4xl md:text-6xl font-bold mb-8 text-center uppercase underline">Pricing Plans</h2>
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+    <div class="bg-black bg-opacity-70 p-8 rounded-lg shadow-lg hover:scale-105 transition">
+      <h3 class="text-3xl mb-4 font-semibold">Basic</h3>
+      <p class="text-2xl mb-4">$9/mo</p>
+      <ul class="mb-4">
+        <li>Access to core features</li>
+        <li>Limited integrations</li>
+        <li>Basic support</li>
+      </ul>
+      <button class="neon-button bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200">Get Started</button>
+    </div>
+    <div class="bg-black bg-opacity-70 p-8 rounded-lg shadow-lg hover:scale-105 transition">
+      <h3 class="text-3xl mb-4 font-semibold">Pro</h3>
+      <p class="text-2xl mb-4">$29/mo</p>
+      <ul class="mb-4">
+        <li>All Basic features</li>
+        <li>Unlimited integrations</li>
+        <li>Priority support</li>
+      </ul>
+      <button class="neon-button bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200">Upgrade Now</button>
+    </div>
+    <div class="bg-black bg-opacity-70 p-8 rounded-lg shadow-lg hover:scale-105 transition">
+      <h3 class="text-3xl mb-4 font-semibold">Enterprise</h3>
+      <p class="text-2xl mb-4">Custom</p>
+      <ul class="mb-4">
+        <li>All Pro features</li>
+        <li>Dedicated support</li>
+        <li>Custom integrations</li>
+      </ul>
+      <button class="neon-button bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200">Contact Us</button>
+    </div>
+  </div>
+</section>
+
+<!-- Contact / End -->
+<section id="contact" class="min-h-screen p-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+  <h2 class="text-4xl md:text-6xl font-bold mb-8 text-center uppercase underline animate-fade-in-up">Get in Touch</h2>
+  <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12 max-w-3xl mx-auto">
     <!-- Discord -->
-    <a href="https://discord.gg/kmGHtfYGUm" target="_blank" class="flex items-center space-x-4 hover:scale-105 transition" style="animation-delay: 0.3s;">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/discord.png" class="w-8 h-8" alt="Discord" />
+    <a href="https://discord.gg/kmGHtfYGUm" target="_blank" class="flex items-center space-x-4 hover:scale-110 transition">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/discord.png" class="w-8 h-8" />
       <span class="font-semibold">Discord</span>
     </a>
     <!-- GitHub -->
-    <a href="https://www.github.com/zex42dev" target="_blank" class="flex items-center space-x-4 hover:scale-105 transition" style="animation-delay: 0.4s;">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" class="w-8 h-8" alt="GitHub" />
+    <a href="https://www.github.com/zex42dev" target="_blank" class="flex items-center space-x-4 hover:scale-110 transition">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" class="w-8 h-8" />
       <span class="font-semibold">GitHub</span>
     </a>
     <!-- Email -->
-    <a href="mailto:folyxz@gmail.com" class="flex items-center space-x-4 hover:scale-105 transition" style="animation-delay: 0.5s;">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/new-post.png" class="w-8 h-8" alt="Email" />
+    <a href="mailto:folyxz@gmail.com" class="flex items-center space-x-4 hover:scale-110 transition">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/new-post.png" class="w-8 h-8" />
       <span class="font-semibold">Email</span>
     </a>
   </div>
 </section>
 
+<!-- Scripts for charts and animations -->
 <script>
-  // Animate sections
-  document.querySelectorAll('.fade-in-up').forEach((el, index) => {
-    el.style.animationDelay = `${0.2 + index * 0.2}s`;
+  // Chart.js comparison chart
+  const ctx = document.getElementById('comparisonChart').getContext('2d');
+  const comparisonChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Speed', 'Ease of Use', 'Integrations', 'Support'],
+      datasets: [{
+        label: 'Our Platform',
+        data: [9, 8.5, 9, 9],
+        backgroundColor: 'rgba(255,255,255,0.7)',
+        borderColor: 'white',
+        borderWidth: 1
+      },
+      {
+        label: 'Others',
+        data: [6, 5, 6, 4],
+        backgroundColor: 'rgba(255,0,0,0.5)',
+        borderColor: 'red',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { labels: { color: 'white' } }
+      },
+      scales: {
+        y: { beginAtZero: true, ticks: { color: 'white' } },
+        x: { ticks: { color: 'white' } }
+      }
+    }
   });
 </script>
 
