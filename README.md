@@ -31,8 +31,9 @@ STYLING: Tailwind CSS / Material UI
 
 BACKEND: Node.js + Serverless Functions
 
-visit us at: snapflowhp.vercel.app
-
 DATABASE: Firebase / Supabase
 
 STREAMING APIS: Twitch, YouTube, TikTok, OBS, WebRTC
+
+visit us at: snapflowhp.vercel.app
+
